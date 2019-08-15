@@ -1,194 +1,178 @@
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <!-- Main content -->
+  <section class="content">
+    <div class="box box-primary">
+      <div class="box-header">
+        <h3 class="box-title">Danh sách báo giá</h3>
+        <button type="submit" class="btn btn-info pull-right" (click)="them_moi.open()">Thêm</button>
+      </div>
+      <div class="box-body">
+        <div class="dataTables_wrapper form-inline dt-bootstrap">
+          <div class="row">
+            <div class="col-sm-12">
+              <eui-datagrid [lazy]="true" (pageChange)="onPageChange($event)" [pagination]="true" [total]="total"
+                [pageNumber]="pageNumber" [pageSize]="pageSize" [pagePosition]="pagePosition" [loading]="loading"
+                [data]="data" style="height:40vh" [columnResizing]="true">
+                <eui-grid-column-group>
+                  <eui-grid-header-row>
+                    <eui-grid-column field="ngay" title="Ngày" width=100></eui-grid-column>
+                    <eui-grid-column field="so_phieu" title="Số Phiếu" width=100></eui-grid-column>
+                    <eui-grid-column field="ten_khach" title="Tên khách" width=150></eui-grid-column>
+                    <eui-grid-column field="dien_thoai" title="Số Điện Thoại" width=100></eui-grid-column>
+                    <eui-grid-column field="dia_chi" title="Địa Chỉ" width=100></eui-grid-column>
+                    <eui-grid-column field="tien_hang" title="Tiền hàng" width=100></eui-grid-column>
+                    <eui-grid-column field="giam_gia" title="Giảm giá" width=100></eui-grid-column>
+                    <eui-grid-column field="tong_cong" title="Tổng cộng" width=100></eui-grid-column>
+                  </eui-grid-header-row>
+                </eui-grid-column-group>
+                <eui-grid-column-group width=50 frozen="true" align="right">
+                  <eui-grid-header-row>
+                    <eui-grid-column>
+                      <ng-template euiCellTemplate let-row>
+                        <div>
+                          <div fxFlex="row" fxLayoutAlign="end center">
+                            <button mat-icon-button [matMenuTriggerFor]="moreMenu" aria-label="More">
+                              <mat-icon class="secondary-text">more_vert</mat-icon>
+                            </button>
 
-    <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <!-- Main content -->
-        <section class="content">
-          <div class="box box-primary">
-            <div class="box-header">
-              <h3 class="box-title">Danh sách báo giá</h3>
-              <button type="submit" class="btn btn-info pull-right" (click)="them_moi.open()">Thêm</button>
+                            <mat-menu #moreMenu="matMenu">
+
+                              <button mat-menu-item aria-label="settings" (click)="them_moi.open()">
+                                <span>Sửa</span>
+                              </button>
+                              <button mat-menu-item aria-label="remove" (click)="d1.open()">
+                                <span>Xóa</span>
+                              </button>
+                            </mat-menu>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </eui-grid-column>
+                  </eui-grid-header-row>
+                </eui-grid-column-group>
+
+
+              </eui-datagrid>
             </div>
-            <div class="box-body">
-              <div class="dataTables_wrapper form-inline dt-bootstrap">
-                <div class="row">
-                  <div class="col-sm-12">
-                    <eui-datagrid [lazy]="true" (pageChange)="onPageChange($event)" [pagination]="true" [total]="total"
-                    [pageNumber]="pageNumber" [pageSize]="pageSize" [pagePosition]="pagePosition" [loading]="loading" [data]="data"
-                    style="height:40vh" [columnResizing]="true">
-                    <eui-grid-column-group>
-                        <eui-grid-header-row>
-                            <eui-grid-column field="ngay" title="Ngày" width=100></eui-grid-column>
-                            <eui-grid-column field="so_phieu" title="Số Phiếu" width=100></eui-grid-column>
-                            <eui-grid-column field="ten_khach" title="Tên khách" width=150></eui-grid-column>
-                            <eui-grid-column field="dien_thoai" title="Số Điện Thoại" width=100></eui-grid-column>
-                            <eui-grid-column field="dia_chi" title="Địa Chỉ" width=100></eui-grid-column>
-                            <eui-grid-column field="tien_hang" title="Tiền hàng" width=100></eui-grid-column>
-                            <eui-grid-column field="giam_gia" title="Giảm giá" width=100></eui-grid-column>
-                            <eui-grid-column field="tong_cong" title="Tổng cộng" width=100></eui-grid-column>
-                          </eui-grid-header-row>
-                          </eui-grid-column-group>
-                          <eui-grid-column-group width=50 frozen="true" align="right">
-                              <eui-grid-header-row>
-                                  <eui-grid-column >
-                                      <ng-template euiCellTemplate let-row>
-                                        <div>
-                                          <div fxFlex="row" fxLayoutAlign="end center">
-                                            <button mat-icon-button [matMenuTriggerFor]="moreMenu" aria-label="More">
-                                              <mat-icon class="secondary-text">more_vert</mat-icon>
-                                            </button>
-
-                                            <mat-menu #moreMenu="matMenu">
-
-                                              <button mat-menu-item aria-label="settings" (click)="them_moi.open()">
-                                                <span>Sửa</span>
-                                              </button>
-                                              <button mat-menu-item aria-label="remove" (click)="d1.open()">
-                                                <span>Xóa</span>
-                                              </button>
-                                            </mat-menu>
-                                          </div>
-                                        </div>
-                                      </ng-template>
-                                    </eui-grid-column>
-                                </eui-grid-header-row>
-                                </eui-grid-column-group>
-
-
-                  </eui-datagrid>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="box box-primary">
+      <div class="box-header">
+        <h3 class="box-title">Thông tin chi tiết</h3>
+      </div>
+      <div class="box-body">
+        <div class="row">
+          <div class="col-lg-5">
+            <div class="box">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="col-sm-12">Thông tin cơ bản</div>
+                  <div class=row>
+                    <div class="col-sm-6 col-xs-4">Số phiếu</div>
+                    <div class="col-sm-6 col-xs-8">DHM001</div>
                   </div>
+                  <div class=row>
+                    <div class="col-sm-6 col-xs-4">Ngày</div>
+                    <div class="col-sm-6 col-xs-8">10/10/2019</div>
+                  </div>
+                  <div class=row>
+                    <div class="col-sm-6 col-xs-4">Tình trạng</div>
+                    <div class="col-sm-6 col-xs-8">Đặt cọc trước</div>
+                  </div>
+                  <div class=row>
+                    <div class="col-sm-6 col-xs-4">Tiền hàng</div>
+                    <div class="col-sm-6 col-xs-8">30000</div>
+                  </div>
+                  <div class=row>
+                    <div class="col-sm-6 col-xs-4">Giảm giá</div>
+                    <div class="col-sm-6 col-xs-8">0</div>
+                  </div>
+                  <div class=row>
+                    <div class="col-sm-6 col-xs-4">Tổng tiền</div>
+                    <div class="col-sm-6 col-xs-8">30000</div>
+                  </div>
+                  <div class=row>
+                    <div class="col-sm-6 col-xs-4">Thanh toán</div>
+                    <div class="col-sm-6 col-xs-8">25000</div>
+                  </div>
+                  <div class="row"></div>
+                  <div class=row>
+                    <div class="col-sm-6 col-xs-4">Người thu tiền</div>
+                    <div class="col-sm-6 col-xs-8">Phạm thị Hồng</div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="col-sm-12">Thông tin NCC</div>
+                  <div class=row>
+                    <div class="col-sm-6 col-xs-4">Công ty</div>
+                    <div class="col-sm-6 col-xs-8">Cty Nguyên vật liệu</div>
+                  </div>
+                  <div class=row>
+                    <div class="col-sm-6 col-xs-4">Khách hàng</div>
+                    <div class="col-sm-6 col-xs-8">Phạm thị Hạnh</div>
+                  </div>
+                  <div class=row>
+                    <div class="col-sm-6 col-xs-4">Điện thoại</div>
+                    <div class="col-sm-6 col-xs-8">099029304</div>
+                  </div>
+                  <div class=row>
+                    <div class="col-sm-6 col-xs-4">Email</div>
+                    <div class="col-sm-6 col-xs-8">info@noihoidonganh.com</div>
+                  </div>
+                  <div class=row>
+                    <div class="col-sm-6 col-xs-4">Địa chỉ</div>
+                    <div class="col-sm-6 col-xs-8">Số 23, Dốc Vân, Mai Lâm, Đông Anh Hà Nội</div>
+                  </div>
+
                 </div>
               </div>
             </div>
           </div>
-          <div class="box box-primary">
+          <div class="col-lg-7">
+            <div class="box">
               <div class="box-header">
-                  <h3 class="box-title">Thông tin chi tiết</h3>
-                </div>
-                <div class="box-body">
-                  <div class="row">
-                    <div class="col-lg-5">
-                      <div class="box">
-                        <div class = "row">
-                            <div class="col-md-6">
-                              <div class="col-sm-12">Thông tin cơ bản</div>
-                              <div class=row>
-                                  <div class="col-sm-6">Số phiếu</div>
-                                  <div class="col-sm-6">DHM001</div>
-                                  </div>
-                                  <div class=row>
-                                      <div class="col-sm-6">Ngày</div>
-                                      <div class="col-sm-6">10/10/2019</div>
-                                      </div>
-                                      <div class=row>
-                                          <div class="col-sm-6">Tình trạng</div>
-                                          <div class="col-sm-6">Đặt cọc trước</div>
-                                          </div>
-                                          <div class=row>
-                                              <div class="col-sm-6">Tiền hàng</div>
-                                              <div class="col-sm-6">30000</div>
-                                              </div>
-                                              <div class=row>
-                                                  <div class="col-sm-6">Giảm giá</div>
-                                                  <div class="col-sm-6">0</div>
-                                                  </div>
-                                                  <div class=row>
-                                                      <div class="col-sm-6">Tổng tiền</div>
-                                                      <div class="col-sm-6">30000</div>
-                                                      </div>
-                                                      <div class=row>
-                                                          <div class="col-sm-6">Thanh toán</div>
-                                                          <div class="col-sm-6">25000</div>
-                                                          </div>
-                                                          <div class="row"></div>
-                                                          <div class=row>
-                                                              <div class="col-sm-6">Người thu tiền</div>
-                                                              <div class="col-sm-6">Phạm thị Hồng</div>
-                                                              </div>
-                                                        </div>
-                            <div class="col-md-6">
-                                <div class="col-sm-12">Thông tin NCC</div>
-                                <div class=row>
-                                    <div class="col-sm-6">Công ty</div>
-                                    <div class="col-sm-6">Cty Nguyên vật liệu</div>
-                                    </div>
-                                    <div class=row>
-                                        <div class="col-sm-6">Khách hàng</div>
-                                        <div class="col-sm-6">Phạm thị Hạnh</div>
-                                        </div>
-                                        <div class=row>
-                                            <div class="col-sm-6">Điện thoại</div>
-                                            <div class="col-sm-6">099029304</div>
-                                            </div>
-                                            <div class=row>
-                                                <div class="col-sm-6">Email</div>
-                                                <div class="col-sm-6">info@noihoidonganh.com</div>
-                                                </div>
-                                                <div class=row>
-                                                    <div class="col-sm-6">Địa chỉ</div>
-                                                    <div class="col-sm-6">Số 23, Dốc Vân, Mai Lâm, Đông Anh Hà Nội</div>
-                                                    </div>
-
-                            </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-lg-7">
-                        <div class="box">
-                            <div class="box-header">
-                                <h3 class="box-title">Danh sách chi tiết đơn hàng</h3>
-                              </div>
-                              <div class="box-body">
-                                  <eui-datagrid [data]="data1" style="height:250px;width:100%" [columnResizing]="true">
-                                      <eui-grid-column field="id" title="Mã" width="100"></eui-grid-column>
-                                      <eui-grid-column field="ten_hang" title="Tên Hàng" width="200"></eui-grid-column>
-                                      <eui-grid-column field="don_vi_tinh" title="DVT" align="right" width="100"></eui-grid-column>
-                                      <eui-grid-column field="so_luong" title="SL" align="right" width="50"></eui-grid-column>
-                                      <eui-grid-column field="don_gia" title="Đơn Giá" width="100"></eui-grid-column>
-                                      <eui-grid-column field="tong_tien" title="Tổng Tiền" align="center" width="100"></eui-grid-column>
-                                      <eui-grid-column field="giam_gia" title="Giảm giá" align="center"width="100"></eui-grid-column>
-                                      <eui-grid-column field="thanh_tien" title="Thành Tiền" align="center" width="100"></eui-grid-column>
-                                  </eui-datagrid>
-                                </div>
-                                </div>
-                      </div>
-                  </div>
-
-                </div>
+                <h3 class="box-title">Danh sách chi tiết đơn hàng</h3>
+              </div>
+              <div class="box-body">
+                <eui-datagrid [data]="data1" style="height:250px;width:100%" [columnResizing]="true">
+                  <eui-grid-column field="id" title="Mã" width="100"></eui-grid-column>
+                  <eui-grid-column field="ten_hang" title="Tên Hàng" width="200"></eui-grid-column>
+                  <eui-grid-column field="don_vi_tinh" title="DVT" align="right" width="100"></eui-grid-column>
+                  <eui-grid-column field="so_luong" title="SL" align="right" width="50"></eui-grid-column>
+                  <eui-grid-column field="don_gia" title="Đơn Giá" width="100"></eui-grid-column>
+                  <eui-grid-column field="tong_tien" title="Tổng Tiền" align="center" width="100"></eui-grid-column>
+                  <eui-grid-column field="giam_gia" title="Giảm giá" align="center" width="100"></eui-grid-column>
+                  <eui-grid-column field="thanh_tien" title="Thành Tiền" align="center" width="100"></eui-grid-column>
+                </eui-datagrid>
+              </div>
+            </div>
           </div>
-        </section>
-      </div>
+        </div>
 
-    <eui-dialog #d1
-  [panelStyle]="{width:'350px', height:'250px'}"
-  panelCls="mydlg"
-  headerCls="mydlg-header"
-  footerCls="mydlg-footer"
-  [modal]="true"
-  borderType="none"
-  [closed] = "true">
+      </div>
+    </div>
+  </section>
+</div>
+
+<eui-dialog #d1 [panelStyle]="{width:'350px', height:'250px'}" panelCls="mydlg" headerCls="mydlg-header"
+  footerCls="mydlg-footer" [modal]="true" borderType="none" [closed]="true">
   <eui-panel-header>Xác nhận xóa</eui-panel-header>
   <p style="text-align:center;margin:50px 0;font-size:16px">Bạn có chắc chắn xóa không?</p>
   <eui-panel-footer>
-  <eui-button-group style="width:100%;height:50px">
+    <eui-button-group style="width:100%;height:50px">
       <eui-linkbutton class="f-full" [plain]="true" btnCls="mybtn">Đồng ý</eui-linkbutton>
       <eui-linkbutton class="f-full" [plain]="true" btnCls="mybtn">Hủy</eui-linkbutton>
-  </eui-button-group>
+    </eui-button-group>
   </eui-panel-footer>
-  </eui-dialog>
+</eui-dialog>
 
-  <eui-dialog #them_moi
-            [panelStyle]="{width:'99vw', height:'90vh'}"
-            panelCls="mydlg"
-            headerCls="mydlg-header"
-            footerCls="mydlg-footer"
-            [modal]="true"
-            borderType="none"
-            [resizable]="true"
-            [draggable]="true"
-            [closed] = "true"
-  >
+<eui-dialog #them_moi [panelStyle]="{width:'99vw', height:'90vh'}" panelCls="mydlg" headerCls="mydlg-header"
+  footerCls="mydlg-footer" [modal]="true" borderType="none" [resizable]="true" [draggable]="true" [closed]="true">
   <eui-panel-header>Thêm mới bảng giá</eui-panel-header>
   <div class="content">
-      <app-them-moi-bao-gia #them></app-them-moi-bao-gia>
+    <app-them-moi-bao-gia #them></app-them-moi-bao-gia>
   </div>
-  </eui-dialog>
+</eui-dialog>
