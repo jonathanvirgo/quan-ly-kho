@@ -1,0 +1,139 @@
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <!-- Main content -->
+    <section class="content">
+<div class="row">
+<div class="col-lg-3">
+  <div class="box box-primary">
+    <div class="box-header">
+      <h3 class="box-title">Lý do thu chi</h3>
+      <button mat-icon-button (click)="them_moi_nhom.open()" class="pull-right">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+    <div class="box-body">
+      <eui-datagrid [data]="data_nhom" style="height:80vh">
+        <eui-grid-column field="ten" title="Tên" width="100"></eui-grid-column>
+        <eui-grid-column title="Thao tác" width="50">
+            <ng-template euiCellTemplate let-row>
+                <div class="thao-tac"  *ngIf="row.ten !== 'Tất cả' && row.ten !== 'Mặc định'">
+                  <a href="javascript:" > <mat-icon>edit</mat-icon> </a>&nbsp;
+                  <a href="javascript:"  class="delete"> <mat-icon>delete</mat-icon> </a>
+                </div>
+              </ng-template>
+        </eui-grid-column>
+    </eui-datagrid>
+    </div>
+  </div>
+</div>
+<div class="col-lg-9">
+  <div class="box box-primary">
+      <div class="box-header">
+          <div class="row">
+            <div class="col-md-2">
+
+            </div>
+            <div class="col-md-4">
+              <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <div class="bt-checkbox">
+                            <label>
+                              <input type="checkbox">
+                              Thu
+                            </label>
+                          </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <div class="bt-checkbox">
+                            <label>
+                              <input type="checkbox">
+                              Chi
+                            </label>
+                          </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+                <button type="submit" class="btn btn-info pull-right" (click)="them_moi.open()">Thêm</button>
+            </div>
+          </div>
+          </div>
+        <div class="box-body">
+            <eui-datagrid [lazy]="true" (pageChange)="onPageChange($event)" [pagination]="true" [total]="total"
+            [pageNumber]="pageNumber" [pageSize]="pageSize" [pagePosition]="pagePosition" [loading]="loading" [data]="data_nhan_vien"
+            style="height:80vh;width:100%" [columnResizing]="true">
+            <eui-grid-column-group>
+                <eui-grid-header-row>
+                    <eui-grid-column field="ngay" title="Ngày" width=100></eui-grid-column>
+                    <eui-grid-column field="so_phieu" title="Số Phiếu" width=200></eui-grid-column>
+                    <eui-grid-column field="ten_doi_tuong" title="Tên đối tượng" width=100></eui-grid-column>
+                    <eui-grid-column field="so_dien_thoai" title="Số Điện Thoại" width=100></eui-grid-column>
+                    <eui-grid-column field="so_tien" title="Số Tiền" width=100></eui-grid-column>
+                    <eui-grid-column field="ly_do" title="Lý do" width=200></eui-grid-column>
+                  </eui-grid-header-row>
+                  </eui-grid-column-group>
+                  <eui-grid-column-group width=100 frozen="true" align="right">
+                      <eui-grid-header-row>
+                          <eui-grid-column >
+                              <ng-template euiCellTemplate let-row>
+                                  <div>
+                                      <button mat-icon-button> <mat-icon>edit</mat-icon> </button>
+                                      <button mat-icon-button> <mat-icon>delete</mat-icon> </button>
+                                    </div>
+                              </ng-template>
+                            </eui-grid-column>
+                        </eui-grid-header-row>
+                        </eui-grid-column-group>
+
+
+          </eui-datagrid>
+        </div>
+  </div>
+
+</div>
+</div>
+    </section>
+  </div>
+
+
+  <eui-dialog #them_moi_nhom
+          [panelStyle]="{width:'50vw', height:'425px'}"
+          panelCls="mydlg"
+          headerCls="mydlg-header"
+          footerCls="mydlg-footer"
+          [modal]="true"
+          borderType="none"
+          [resizable]="true"
+          [draggable]="true"
+          [closed] = "true"
+>
+<eui-panel-header>Thêm lý do</eui-panel-header>
+<div class="content">
+<app-them-moi-ly-do #ly_do></app-them-moi-ly-do>
+</div>
+</eui-dialog>
+
+
+<eui-dialog #them_moi
+        [panelStyle]="{width:'50vw', height:'550px'}"
+        panelCls="mydlg"
+        headerCls="mydlg-header"
+        footerCls="mydlg-footer"
+        [modal]="true"
+        borderType="none"
+        [resizable]="true"
+        [draggable]="true"
+        [closed] = "true"
+>
+<eui-panel-header>Thêm mới phiếu thu</eui-panel-header>
+<div class="content">
+  <app-them-moi-phieu-thu></app-them-moi-phieu-thu>
+</div>
+</eui-dialog>

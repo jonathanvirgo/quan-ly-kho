@@ -1,0 +1,87 @@
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <!-- Main content -->
+    <section class="content">
+<div class="row">
+    <div class="col-lg-9">
+        <div class="box box-primary">
+            <div class="box-body">
+              <div class="row">
+                <div class="col-md-7">
+                    <div class="form-group">
+                        <label >Mã/ Tên</label>
+                        <input type="text" class="form-control">
+                      </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label >Số lượng</label>
+                        <input type="text" class="form-control">
+                      </div>
+                </div>
+                <div class="col-md-2">
+                    <button type="submit" class="btn btn-primary pull-right" style="margin-top: 25px">Thêm</button>
+                </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-12">
+                      <h4>Danh sách</h4>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-12">
+                      <eui-datagrid [lazy]="true" (pageChange)="onPageChange($event)" [pagination]="true" [total]="total"
+                      [pageNumber]="pageNumber" [pageSize]="pageSize" [pagePosition]="pagePosition" [loading]="loading" [data]="data"
+                      style="height:70vh;width:100%" [columnResizing]="true">
+                      <eui-grid-column field="id" title="Mã hàng hóa" width=100></eui-grid-column>
+                      <eui-grid-column field="ten" title="Tên hàng hóa" width=200></eui-grid-column>
+                      <eui-grid-column field="don_vi_tinh" title="ĐVT" width=100></eui-grid-column>
+                      <eui-grid-column field="so_luong" title="Số lượng" width=100></eui-grid-column>
+                      <eui-grid-column width=100>
+                        <ng-template euiCellTemplate let-row>
+                            <div>
+
+                                <button mat-icon-button> <mat-icon>delete</mat-icon> </button>
+                              </div>
+                        </ng-template>
+                      </eui-grid-column>
+                    </eui-datagrid>
+                    </div>
+              </div>
+              </div>
+          </div>
+      </div>
+      <div class="col-lg-3" style="margin-top: 50px">
+        <div class="row"></div>
+        <div class="row"></div>
+        <div class="row">
+          <div class="col-sm-6">
+              <div class="form-group">
+                  <div class="bt-checkbox">
+                    <label>
+                      <input type="checkbox">
+                      Tên nhãn
+                    </label>
+                  </div>
+                </div>
+          </div>
+          <div class="col-sm-6">
+              <div class="form-group">
+                  <div class="bt-checkbox">
+                    <label>
+                      <input type="checkbox">
+                      Giá
+                    </label>
+                  </div>
+                </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4 col-sm-offset-3">
+              <button type="button" class="btn btn-primary pull-right" >In</button>
+          </div>
+        </div>
+      </div>
+  </div>
+  </section>
+  </div>

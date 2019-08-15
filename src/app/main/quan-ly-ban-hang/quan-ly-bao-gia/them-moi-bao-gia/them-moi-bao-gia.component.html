@@ -1,0 +1,179 @@
+<div class="row">
+    <div class="col-lg-5">
+        <div class="box box-primary">
+            <form role="form">
+                <div class="box-body">
+                  <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label >Ngày</label>
+                            <input type="text" class="form-control input-sm">
+                          </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label >Mã Phiếu</label>
+                            <input type="text" class="form-control input-sm">
+                          </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-10">
+                          <div class="form-group">
+                              <label>Họ tên khách hàng</label>
+                              <select class="form-control">
+                                <option>Nguyễn Văn A</option>
+                                <option>Nguyễn Văn B</option>
+                              </select>
+                            </div>
+                      </div>
+                      <div class="col-md-2">
+                          <button mat-icon-button style="margin-top:21px" (click)="them_moi_khach_hang.open()"><mat-icon>person_add</mat-icon></button>
+                      </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label >Số điện thoại</label>
+                                <input type="text" class="form-control input-sm">
+                              </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label >Email</label>
+                                <input type="text" class="form-control input-sm">
+                              </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                          <div class="col-md-12">
+                              <div class="form-group">
+                                  <label >Số nhà</label>
+                                  <input type="text" class="form-control input-sm">
+                                </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label >Địa chỉ</label>
+                                    <input type="text" class="form-control input-sm">
+                                  </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-sm-3" style="padding-right: 5px">
+                                  <div class="form-group">
+                                      <input type="text" class="form-control input-sm" placeholder="Mã hoặc tên">
+                                    </div>
+                              </div>
+                              <div class="col-sm-2" style="padding-right: 5px;padding-left: 5px">
+                                  <div class="form-group">
+                                      <input type="text" class="form-control input-sm" placeholder="Số lượng">
+                                    </div>
+                                </div>
+                              <div class="col-sm-2" style="padding-right: 5px;padding-left: 5px">
+                                  <div class="form-group">
+                                      <input type="text" class="form-control input-sm" placeholder="DVT">
+                                    </div>
+                                </div>
+                                <div class="col-sm-3" style="padding-right: 5px;padding-left: 5px">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control input-sm" placeholder="Đơn giá">
+                                      </div>
+                                  </div>
+                                <div class="col-sm-2" style="padding-left: 5px">
+                                    <button type="submit" class="btn btn-primary pull-left">Thêm</button>
+                                  </div>
+                            </div>
+                            <eui-datagrid [data]="data" style="height:184px">
+                                <eui-grid-column field="id" title="Mã hàng"></eui-grid-column>
+                                <eui-grid-column field="ten" title="Tên hàng"></eui-grid-column>
+                                <eui-grid-column field="so_luong" title="Số Lượng" align="right"></eui-grid-column>
+                                <eui-grid-column field="don_gia" title="Đơn giá" align="right"></eui-grid-column>
+                            </eui-datagrid>
+                </div>
+                    </form>
+
+          </div>
+          </div>
+          <div class="col-lg-7">
+              <div class="box box-primary">
+                  <form role="form">
+                      <div class="box-body">
+                        <div class="row">
+                          <div class="col-md-4 col-md-offset-4">
+                              <h1>BÁO GIÁ </h1>
+                          </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3" style="padding-right: 5px">
+                                <div class="form-group">
+                                    <label >Tiền hàng</label>
+                                    <input type="text" class="form-control" placeholder="0">
+                                  </div>
+                            </div>
+                            <div class="col-sm-2" style="padding-right: 5px;padding-left: 5px">
+                                <div class="form-group">
+                                    <label >Giảm giá</label>
+                                    <input type="text" class="form-control" placeholder="0">
+                                  </div>
+                            </div>
+                            <div class="col-sm-3" style="padding-right: 5px;padding-left: 5px">
+                                <div class="form-group">
+                                    <label >Tiền vận chuyển</label>
+                                    <input type="text" class="form-control" placeholder="0">
+                                  </div>
+                            </div>
+                            <div class="col-sm-4" style="padding-left: 5px">
+                                <div class="form-group">
+                                    <label >Tổng tiền</label>
+                                    <input type="text" class="form-control" placeholder="0">
+                                  </div>
+                            </div>
+                          </div>
+                          <eui-datagrid [data]="data1" style="height:445px;" [columnResizing]="true">
+                              <eui-grid-column field="id" title="Mã" width="100"></eui-grid-column>
+                              <eui-grid-column field="ten_hang" title="Tên Hàng" width="150"></eui-grid-column>
+                              <eui-grid-column field="don_vi_tinh" title="DVT" align="right" width="100"></eui-grid-column>
+                              <eui-grid-column field="so_luong" title="SL" align="right" width="50"></eui-grid-column>
+                              <eui-grid-column field="don_gia" title="Đơn Giá" width="100"></eui-grid-column>
+                              <eui-grid-column field="tong_tien" title="Tổng Tiền" align="center" width="100"></eui-grid-column>
+                              <eui-grid-column field="giam_gia" title="Giảm giá" align="center"width="100"></eui-grid-column>
+                              <eui-grid-column field="thanh_tien" title="Thành Tiền" align="center" width="100"></eui-grid-column>
+                          </eui-datagrid>
+                        </div>
+                          </form>
+              </div>
+          </div>
+          </div>
+          <div class="row">
+
+              <div class="col-md-1 col-md-offset-7">
+                  <button type="submit" class="btn btn-primary pull-right">Thêm và gửi Email</button>
+              </div>
+              <div class="col-md-1">
+                  <button type="submit" class="btn btn-primary pull-right">Thêm</button>
+              </div>
+              <div class="col-md-1">
+                  <button type="submit" class="btn btn-default pull-right">Hủy</button>
+              </div>
+          </div>
+
+          <eui-dialog #them_moi_khach_hang
+          [panelStyle]="{width:'80vw', height:'635px'}"
+          panelCls="mydlg"
+          headerCls="mydlg-header"
+          footerCls="mydlg-footer"
+          [modal]="true"
+          borderType="none"
+          [resizable]="true"
+          [draggable]="true"
+          [closed] = "true"
+>
+<eui-panel-header>Thêm mới khách hàng</eui-panel-header>
+<div class="content">
+    <app-them-moi-khach-hang #khach_hang></app-them-moi-khach-hang>
+</div>
+</eui-dialog>

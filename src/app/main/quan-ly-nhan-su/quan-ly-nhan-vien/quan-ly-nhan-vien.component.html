@@ -1,0 +1,251 @@
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <!-- Main content -->
+    <section class="content">
+<div class="row">
+<div class="col-lg-3">
+  <div class="box box-primary">
+    <div class="box-header">
+      <h3 class="box-title">Nhóm</h3>
+      <button mat-icon-button (click)="them_moi_nhom.open()" class="pull-right">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+    <!-- row.ten !== 'Tất cả' || row.ten !== 'Mặc định' -->
+    <div class="box-body">
+      <eui-datagrid [data]="data_nhom" style="height:80vh">
+        <eui-grid-column field="ten" title="Tên" width="100"></eui-grid-column>
+        <eui-grid-column title="Thao tác" width="50">
+            <ng-template euiCellTemplate let-row >
+                <div class="thao-tac" *ngIf="row.ten !== 'Tất cả' && row.ten !== 'Mặc định'">
+                  <a href="javascript:" > <mat-icon>edit</mat-icon> </a>&nbsp;
+                  <a href="javascript:"  class="delete"> <mat-icon>delete</mat-icon> </a>
+                </div>
+              </ng-template>
+        </eui-grid-column>
+    </eui-datagrid>
+    </div>
+  </div>
+</div>
+<div class="col-lg-9">
+  <div class="box box-primary">
+      <div class="box-header">
+          <h3 class="box-title">Danh sách nhân viên</h3>
+          <button mat-raised-button color="primary" (click)="them_moi_nhan_vien.open()" class="pull-right">
+            Thêm mới
+          </button>
+        </div>
+        <div class="box-body">
+            <eui-datagrid [lazy]="true" (pageChange)="onPageChange($event)" [pagination]="true" [total]="total"
+            [pageNumber]="pageNumber" [pageSize]="pageSize" [pagePosition]="pagePosition" [loading]="loading" [data]="data_nhan_vien"
+            style="height:80vh;width:100%" [columnResizing]="true">
+            <!-- <eui-grid-column [expander]="true" width="30"></eui-grid-column> -->
+            <!-- <eui-grid-column field="CK" align="center" cellCss="datagrid-td-rownumber" width=50>
+              <ng-template euiCellTemplate let-row>
+                <div>
+                  <eui-checkbox style="color: #0a001f" [value]="row" [(ngModel)]="check" name="ck" [checked]="row.selected"
+                    [multiple]="true"></eui-checkbox>
+                </div>
+              </ng-template>
+            </eui-grid-column> -->
+            <!-- <eui-grid-column align="center" cellCss="datagrid-td-rownumber" width="30">
+                      <ng-template euiCellTemplate let-rowIndex="rowIndex">
+                          {{rowIndex + 1}}
+                      </ng-template>
+                  </eui-grid-column> -->
+                  <eui-grid-column-group>
+                    <eui-grid-header-row>
+                        <eui-grid-column field="id" title="Mã NV" width=50></eui-grid-column>
+                        <eui-grid-column field="ten" title="Họ Tên" width=150></eui-grid-column>
+                        <eui-grid-column field="so_dien_thoai" title="Số Điện Thoại" width=100></eui-grid-column>
+                        <eui-grid-column field="email" title="Email" width=200></eui-grid-column>
+                        <eui-grid-column field="ten_dang_nhap" title="Tên đăng nhập" width=150></eui-grid-column>
+                    </eui-grid-header-row>
+                  </eui-grid-column-group>
+                  <eui-grid-column-group frozen="true" align="right" width=130>
+                      <eui-grid-header-row>
+                          <eui-grid-column>
+                              <ng-template euiCellTemplate let-row>
+                                  <div>
+                                      <button mat-icon-button> <mat-icon>edit</mat-icon> </button>
+                                      <button mat-icon-button (click)="tai_khoan.open()"> <mat-icon>group</mat-icon> </button>
+                                      <button mat-icon-button [matMenuTriggerFor]="moreMenu">
+                                          <mat-icon>more_vert</mat-icon>
+                                        </button>
+
+                                        <mat-menu #moreMenu="matMenu">
+                                            <button mat-menu-item aria-label="edit" (click)="doi_mat_khau.open()">
+                                              <span>Đổi mật khẩu</span>
+                                            </button>
+                                            <button mat-menu-item aria-label="remove" (click)="cap_quyen.open()">
+                                                <span>Cấp Quyền</span>
+                                              </button>
+                                            <button mat-menu-item aria-label="remove" (click)="d1.open()">
+                                              <span>Xóa</span>
+                                            </button>
+                                          </mat-menu>
+                                    </div>
+                              </ng-template>
+                            </eui-grid-column>
+                        </eui-grid-header-row>
+                        </eui-grid-column-group>
+          </eui-datagrid>
+        </div>
+  </div>
+
+</div>
+</div>
+    </section>
+  </div>
+
+<eui-dialog #d1
+[panelStyle]="{width:'350px', height:'250px'}"
+panelCls="mydlg"
+headerCls="mydlg-header"
+footerCls="mydlg-footer"
+[modal]="true"
+borderType="none"
+[closed] = "true">
+<eui-panel-header>Xác nhận xóa</eui-panel-header>
+<p style="text-align:center;margin:50px 0;font-size:16px">Bạn có chắc chắn xóa không?</p>
+<eui-panel-footer>
+<eui-button-group style="width:100%;height:50px">
+    <eui-linkbutton class="f-full" [plain]="true" btnCls="mybtn">Đồng ý</eui-linkbutton>
+    <eui-linkbutton class="f-full" [plain]="true" btnCls="mybtn">Hủy</eui-linkbutton>
+</eui-button-group>
+</eui-panel-footer>
+</eui-dialog>
+
+<eui-dialog #them_moi_nhan_vien
+          [panelStyle]="{width:'80vw', height:'551px'}"
+          panelCls="mydlg"
+          headerCls="mydlg-header"
+          footerCls="mydlg-footer"
+          [modal]="true"
+          borderType="none"
+          [resizable]="true"
+          [draggable]="true"
+          [closed] = "true"
+>
+<eui-panel-header>Thêm mới nhân viên</eui-panel-header>
+<div class="content">
+    <app-them-moi-nhan-vien #them></app-them-moi-nhan-vien>
+</div>
+<!-- <eui-dialog-footer>
+    <div fxLayout="row" fxLayoutAlign="end start">
+      <div fxFlex="0 1 auto" class="title-button" class="margin">
+        <button mat-raised-button color="primary"
+                > Thêm mới</button>
+        <button mat-raised-button>Làm Mới</button>
+      </div>
+    </div>
+  </eui-dialog-footer> -->
+</eui-dialog>
+
+<eui-dialog #tai_khoan
+          [panelStyle]="{width:'40vw', height:'477px'}"
+          panelCls="mydlg"
+          headerCls="mydlg-header"
+          footerCls="mydlg-footer"
+          [modal]="true"
+          borderType="none"
+          [resizable]="true"
+          [draggable]="true"
+          [closed] = "true"
+>
+<eui-panel-header>Tạo tài khoản</eui-panel-header>
+<div class="content">
+    <app-tai-khoan-nhan-vien #tk></app-tai-khoan-nhan-vien>
+</div>
+</eui-dialog>
+
+<eui-dialog #cap_quyen
+          [panelStyle]="{width:'99vw', height:'80vh'}"
+          panelCls="mydlg"
+          headerCls="mydlg-header"
+          footerCls="mydlg-footer"
+          [modal]="true"
+          borderType="none"
+          [resizable]="true"
+          [draggable]="true"
+          [closed] = "true"
+>
+<eui-panel-header>Cấp quyền sử dụng</eui-panel-header>
+<div class="content">
+    <app-cap-quyen-nhan-vien #cq></app-cap-quyen-nhan-vien>
+</div>
+</eui-dialog>
+
+<eui-dialog #them_moi_nhom
+          [panelStyle]="{width:'50vw', height:'345px'}"
+          panelCls="mydlg"
+          headerCls="mydlg-header"
+          footerCls="mydlg-footer"
+          [modal]="true"
+          borderType="none"
+          [resizable]="true"
+          [draggable]="true"
+          [closed] = "true"
+>
+<eui-panel-header>Nhóm nhân viên</eui-panel-header>
+<div class="content">
+    <div class="box box-primary">
+        <form role="form">
+        <div class="box-body">
+            <div class="form-group">
+                <label >Tên nhóm</label>
+                <input type="text" class="form-control">
+              </div>
+              <div class="form-group" style="margin-top: 10px">
+                  <label>Thuộc nhóm</label>
+                  <select class="form-control">
+                    <option>Mặc định</option>
+                    <option>Abc</option>
+                  </select>
+                </div>
+        </div>
+        </form>
+        <div class="box-footer">
+            <button type="submit" class="btn btn-default pull-right" style="margin-left: 10px">Hủy</button>
+          <button type="submit" class="btn btn-primary pull-right" >Thêm mới</button>
+
+        </div>
+    </div>
+</div>
+</eui-dialog>
+
+<eui-dialog #doi_mat_khau
+          [panelStyle]="{width:'50vw', height:'345px'}"
+          panelCls="mydlg"
+          headerCls="mydlg-header"
+          footerCls="mydlg-footer"
+          [modal]="true"
+          borderType="none"
+          [resizable]="true"
+          [draggable]="true"
+          [closed] = "true"
+>
+<eui-panel-header>Đổi mật khẩu</eui-panel-header>
+<div class="content">
+    <div class="box box-primary">
+        <form role="form">
+        <div class="box-body">
+            <div class="form-group">
+                <label >Tên đăng nhập</label>
+                <input type="text" class="form-control">
+              </div>
+              <div class="form-group">
+                  <label >Email</label>
+                  <input type="text" class="form-control">
+                </div>
+
+        </div>
+        </form>
+        <div class="box-footer">
+            <button type="submit" class="btn btn-default pull-right" style="margin-left: 10px">Hủy</button>
+          <button type="submit" class="btn btn-primary pull-right" >Gửi mật khẩu</button>
+
+        </div>
+    </div>
+</div>
+</eui-dialog>

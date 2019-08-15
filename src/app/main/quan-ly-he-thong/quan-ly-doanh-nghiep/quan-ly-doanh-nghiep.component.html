@@ -1,0 +1,158 @@
+
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <!-- Main content -->
+    <section class="content">
+      <div class="box box-primary">
+        <div class="box-header">
+          <h3 class="box-title">Danh sách doanh nghiệp</h3>
+          <button type="submit" class="btn btn-info pull-right" (click)="them_moi.open()">Thêm mới</button>
+        </div>
+        <div class="box-body">
+          <div class="dataTables_wrapper form-inline dt-bootstrap">
+            <div class="row">
+              <div class="col-sm-12">
+                <eui-datagrid [lazy]="true" (pageChange)="onPageChange($event)" [pagination]="true" [total]="total"
+                [pageNumber]="pageNumber" [pageSize]="pageSize" [pagePosition]="pagePosition" [loading]="loading" [data]="data"
+                style="height:80vh;width:100%" [columnResizing]="true">
+
+                <!-- <eui-grid-column [expander]="true" width="30"></eui-grid-column> -->
+                <eui-grid-column field="CK" align="center" cellCss="datagrid-td-rownumber" width=50>
+                  <ng-template euiCellTemplate let-row>
+                    <div>
+                      <eui-checkbox style="color: #0a001f" [value]="row" [(ngModel)]="check" name="ck" [checked]="row.selected"
+                        [multiple]="true"></eui-checkbox>
+                    </div>
+                  </ng-template>
+                </eui-grid-column>
+                <!-- <eui-grid-column align="center" cellCss="datagrid-td-rownumber" width="30">
+                          <ng-template euiCellTemplate let-rowIndex="rowIndex">
+                              {{rowIndex + 1}}
+                          </ng-template>
+                      </eui-grid-column> -->
+                      <eui-grid-column-group>
+                          <eui-grid-header-row>
+                              <eui-grid-column field="id" title="Mã" width=100></eui-grid-column>
+                              <eui-grid-column field="ten" title="Tên" width=200></eui-grid-column>
+                              <eui-grid-column field="ma_so_thue" title="Mã Số Thuế" width=100></eui-grid-column>
+                              <eui-grid-column field="so_dien_thoai" title="Số Điện Thoại" width=100></eui-grid-column>
+                              <eui-grid-column field="dia_chi" title="Địa Chỉ" width=300></eui-grid-column>
+                              <eui-grid-column field="email" title="Email" width=200></eui-grid-column>
+                          </eui-grid-header-row>
+                      </eui-grid-column-group>
+                      <eui-grid-column-group frozen="true" align="right" width=50>
+                          <eui-grid-header-row>
+                              <eui-grid-column>
+                                  <ng-template euiCellTemplate let-row>
+                                        <button mat-icon-button [matMenuTriggerFor]="moreMenu">
+                                          <mat-icon>more_vert</mat-icon>
+                                        </button>
+
+                                        <mat-menu #moreMenu="matMenu">
+                                          <button mat-menu-item aria-label="edit" (click)="them_moi.open()">
+                                            <span>Xem</span>
+                                          </button>
+                                          <button mat-menu-item aria-label="settings" (click)="them_moi.open()">
+                                            <span>Sửa</span>
+                                          </button>
+                                          <button mat-menu-item aria-label="remove" (click)="d1.open()">
+                                            <span>Xóa</span>
+                                          </button>
+                                          <button mat-menu-item aria-label="remove" (click)="tai_khoan.open()">
+                                            <span>Tài khoản</span>
+                                          </button>
+                                          <button mat-menu-item aria-label="remove" (click)="cap_quyen.open()">
+                                            <span>Cấp Quyền</span>
+                                          </button>
+                                        </mat-menu>
+                                  </ng-template>
+                                </eui-grid-column>
+                          </eui-grid-header-row>
+                      </eui-grid-column-group>
+              </eui-datagrid>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+<eui-dialog #them_moi
+          [panelStyle]="{width:'80vw', height:'648px'}"
+          panelCls="mydlg"
+          headerCls="mydlg-header"
+          footerCls="mydlg-footer"
+          [modal]="true"
+          borderType="none"
+          [resizable]="true"
+          [draggable]="true"
+          [closed] = "true"
+>
+<eui-panel-header>Thêm mới doanh nghiệp</eui-panel-header>
+<div class="content">
+    <app-them-moi-doanh-nghiep #them (dong)="them_moi.close()"></app-them-moi-doanh-nghiep>
+</div>
+<!-- <eui-dialog-footer>
+    <div fxLayout="row" fxLayoutAlign="end start">
+      <div fxFlex="0 1 auto" class="title-button" class="margin">
+        <button mat-raised-button color="primary"
+                > Thêm mới</button>
+        <button mat-raised-button>Làm Mới</button>
+      </div>
+    </div>
+  </eui-dialog-footer> -->
+</eui-dialog>
+
+<eui-dialog #tai_khoan
+          [panelStyle]="{width:'50vw', height:'480px'}"
+          panelCls="mydlg"
+          headerCls="mydlg-header"
+          footerCls="mydlg-footer"
+          [modal]="true"
+          borderType="none"
+          [resizable]="true"
+          [draggable]="true"
+          [closed] = "true"
+>
+<eui-panel-header>Tạo tài khoản</eui-panel-header>
+<div class="content">
+    <app-tai-khoan-doanh-nghiep #tk></app-tai-khoan-doanh-nghiep>
+</div>
+</eui-dialog>
+
+
+<eui-dialog #d1
+[panelStyle]="{width:'350px', height:'250px'}"
+panelCls="mydlg"
+headerCls="mydlg-header"
+footerCls="mydlg-footer"
+[modal]="true"
+borderType="none"
+[closed] = "true">
+<eui-panel-header>Xác nhận xóa</eui-panel-header>
+<p style="text-align:center;margin:50px 0;font-size:16px">Bạn có chắc chắn xóa không?</p>
+<eui-panel-footer>
+<eui-button-group style="width:100%;height:50px">
+    <eui-linkbutton class="f-full" [plain]="true" btnCls="mybtn" (click)="d1.close()">Đồng ý</eui-linkbutton>
+    <eui-linkbutton class="f-full" [plain]="true" btnCls="mybtn" (click)="d1.close()">Hủy</eui-linkbutton>
+</eui-button-group>
+</eui-panel-footer>
+</eui-dialog>
+
+<eui-dialog #cap_quyen
+          [panelStyle]="{width:'90vw', height:'90vh'}"
+          panelCls="mydlg"
+          headerCls="mydlg-header"
+          footerCls="mydlg-footer"
+          [modal]="true"
+          borderType="none"
+          [resizable]="true"
+          [draggable]="true"
+          [closed] = "true"
+>
+<eui-panel-header>Cấp quyền sử dụng</eui-panel-header>
+<div class="content">
+    <app-cap-quyen-doanh-nghiep #cq></app-cap-quyen-doanh-nghiep>
+</div>
+</eui-dialog>

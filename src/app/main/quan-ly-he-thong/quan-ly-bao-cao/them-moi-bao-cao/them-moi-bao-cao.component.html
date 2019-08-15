@@ -1,0 +1,45 @@
+<div class="box box-primary">
+    <!-- /.box-header -->
+    <!-- form start -->
+    <form role="form">
+      <div class="box-body">
+          <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label >Tên </label>
+                    <input type="text" class="form-control">
+                  </div>
+                  <div class="form-group">
+                      <label >Đường dẫn URL</label>
+                      <input type="text" class="form-control">
+                    </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Biểu tượng</label>
+                    <select class="form-control">
+                      <option>Bt 1</option>
+                      <option>Bt 2</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                      <label >Thứ tự</label>
+                      <input type="text" class="form-control">
+                    </div>
+            </div>
+            </div>
+            <div class="form-group">
+                <label>Cấp trên</label>
+                <select class="form-control">
+                  <option>Cấp trên 1</option>
+                  <option>Cấp trên 2</option>
+                </select>
+              </div>
+        </div>
+        <div class="box-footer">
+            <button type="submit" class="btn btn-default pull-right" style="margin-left: 10px" (click)="vote()">Hủy</button>
+          <button type="submit" class="btn btn-primary pull-right">Thêm mới</button>
+
+        </div>
+        </form>
+        </div>

@@ -1,0 +1,214 @@
+<div class="row">
+    <div class="col-lg-5">
+        <div class="box box-primary">
+            <form role="form">
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <div class="form-group">
+                                <label>Chọn nhà cung cấp</label>
+                                <select class="form-control input-sm">
+                                  <option>Nhà cung cấp 1</option>
+                                  <option>Nhà cung cấp 2</option>
+                                </select>
+                              </div>
+                        </div>
+                        <div class="col-md-2">
+                            <button mat-icon-button style="margin-top:18px" (click)="them_moi_nha_cung_cap.open()"><mat-icon>person_add</mat-icon></button>
+                        </div>
+                      </div>
+                      <div class="row">
+                          <div class="col-md-10">
+                              <div class="form-group">
+                                  <label>Chọn vận chuyển</label>
+                                  <select class="form-control input-sm">
+                                    <option>Vận chuyển 1</option>
+                                    <option>Vận chuyển 2</option>
+                                  </select>
+                                </div>
+                          </div>
+                          <div class="col-md-2">
+                              <button mat-icon-button style="margin-top:18px" (click)="them_moi_van_chuyen.open()"><mat-icon>person_add</mat-icon></button>
+                          </div>
+                        </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label >Diễn giải</label>
+                            <input type="text" class="form-control input-sm">
+                          </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-12">
+                          <div class="form-group">
+                              <label >Ghi Chú</label>
+                              <input type="text" class="form-control input-sm">
+                            </div>
+                      </div>
+                    </div>
+                          <div class="row">
+                              <div class="col-sm-3" style="padding-right: 5px">
+                                  <div class="form-group">
+                                      <input type="text" class="form-control input-sm" placeholder="Mã hoặc tên">
+                                    </div>
+                              </div>
+                              <div class="col-sm-2" style="padding-right: 5px;padding-left: 5px">
+                                  <div class="form-group">
+                                      <input type="text" class="form-control input-sm" placeholder="Số lượng">
+                                    </div>
+                                </div>
+                              <div class="col-sm-2" style="padding-right: 5px;padding-left: 5px">
+                                  <div class="form-group">
+                                      <input type="text" class="form-control input-sm" placeholder="DVT">
+                                    </div>
+                                </div>
+                                <div class="col-sm-3" style="padding-right: 5px;padding-left: 5px">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control input-sm" placeholder="Đơn giá">
+                                      </div>
+                                  </div>
+                                <div class="col-sm-2" style="padding-left: 5px">
+                                    <button type="submit" class="btn btn-primary pull-left">Thêm</button>
+                                  </div>
+                            </div>
+                            <eui-datagrid [data]="data" style="height:184px">
+                                <eui-grid-column field="id" title="Mã hàng"></eui-grid-column>
+                                <eui-grid-column field="ten" title="Tên hàng"></eui-grid-column>
+                                <eui-grid-column field="so_luong" title="Số Lượng" align="right"></eui-grid-column>
+                                <eui-grid-column field="don_gia" title="Đơn giá" align="right"></eui-grid-column>
+                            </eui-datagrid>
+                </div>
+                    </form>
+
+          </div>
+          </div>
+          <div class="col-lg-7">
+              <div class="box box-primary">
+                  <form role="form">
+                      <div class="box-body">
+                          <div class="row">
+                              <div class="col-md-8 col-md-offset-2">
+                                  <h1>ĐƠN NHẬP HÀNG</h1>
+                              </div>
+
+                            </div>
+                        <div class="row">
+                            <div class="col-sm-3" style="padding-right: 5px">
+                              <div class="form-group">
+                                <label>Phiếu mua hàng</label>
+                                <select class="form-control">
+                                  <option>Phiếu mua hàng 1</option>
+                                  <option>Phiếu mua hàng 2</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="col-sm-3" style="padding-right: 5px;padding-left: 5px">
+                                <div class="form-group">
+                                    <label >Ngày</label>
+                                    <input type="text" class="form-control" placeholder="8/8/2019">
+                                  </div>
+                            </div>
+                            <div class="col-sm-3" style="padding-right: 5px;padding-left: 5px">
+                                <div class="form-group">
+                                    <label >Phiếu báo giá</label>
+                                    <input type="text" class="form-control" placeholder="NH0001">
+                                  </div>
+                            </div>
+                            <div class="col-sm-3" style="padding-left: 5px;">
+                                <div class="form-group">
+                                    <label>Chọn kho hàng</label>
+                                    <select class="form-control">
+                                      <option>Kho hàng 1</option>
+                                      <option>Kho hàng 2</option>
+                                    </select>
+                                  </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-sm-3" style="padding-right: 5px">
+                                <div class="form-group">
+                                    <label >Tiền hàng</label>
+                                    <input type="text" class="form-control" placeholder="0">
+                                  </div>
+                            </div>
+                            <div class="col-sm-3" style="padding-right: 5px;padding-left: 5px">
+                                <div class="form-group">
+                                    <label >Giảm giá</label>
+                                    <input type="text" class="form-control" placeholder="0">
+                                  </div>
+                            </div>
+                            <div class="col-sm-3" style="padding-right: 5px;padding-left: 5px">
+                                <div class="form-group">
+                                    <label >Tiền vận chuyển</label>
+                                    <input type="text" class="form-control" placeholder="0">
+                                  </div>
+                            </div>
+                            <div class="col-sm-3" style="padding-left: 5px">
+                                <div class="form-group">
+                                    <label >Tổng tiền</label>
+                                    <input type="text" class="form-control" placeholder="0">
+                                  </div>
+                            </div>
+                          </div>
+                          <eui-datagrid [data]="data1" style="height:290px;" [columnResizing]="true">
+                              <eui-grid-column field="id" title="Mã" width="100"></eui-grid-column>
+                              <eui-grid-column field="ten_hang" title="Tên Hàng" width="200"></eui-grid-column>
+                              <eui-grid-column field="don_vi_tinh" title="DVT" align="right" width="100"></eui-grid-column>
+                              <eui-grid-column field="so_luong" title="SL" align="right" width="50"></eui-grid-column>
+                              <eui-grid-column field="don_gia" title="Đơn Giá" width="100"></eui-grid-column>
+                              <eui-grid-column field="tong_tien" title="Tổng Tiền" align="center" width="100"></eui-grid-column>
+                              <eui-grid-column field="giam_gia" title="Giảm giá" align="center"width="100"></eui-grid-column>
+                              <eui-grid-column field="thanh_tien" title="Thành Tiền" align="center" width="100"></eui-grid-column>
+                          </eui-datagrid>
+                        </div>
+                          </form>
+              </div>
+          </div>
+          </div>
+          <div class="row">
+
+            <div class="col-md-1 col-md-offset-7">
+                <button type="submit" class="btn btn-primary pull-right">In</button>
+            </div>
+            <div class="col-md-1">
+                <button type="submit" class="btn btn-primary pull-right">Thêm</button>
+            </div>
+            <div class="col-md-1">
+                <button type="submit" class="btn btn-default pull-right">Hủy</button>
+            </div>
+        </div>
+
+          <eui-dialog #them_moi_nha_cung_cap
+          [panelStyle]="{width:'80vw', height:'648px'}"
+          panelCls="mydlg"
+          headerCls="mydlg-header"
+          footerCls="mydlg-footer"
+          [modal]="true"
+          borderType="none"
+          [resizable]="true"
+          [draggable]="true"
+          [closed] = "true"
+  >
+  <eui-panel-header>Thêm mới nhà cung cấp</eui-panel-header>
+  <div class="content">
+      <app-them-moi-doanh-nghiep #cc></app-them-moi-doanh-nghiep>
+  </div>
+  </eui-dialog>
+
+  <eui-dialog #them_moi_van_chuyen
+  [panelStyle]="{width:'80vw', height:'648px'}"
+  panelCls="mydlg"
+  headerCls="mydlg-header"
+  footerCls="mydlg-footer"
+  [modal]="true"
+  borderType="none"
+  [resizable]="true"
+  [draggable]="true"
+  [closed] = "true"
+  >
+  <eui-panel-header>Thêm mới vận chuyển</eui-panel-header>
+  <div class="content">
+      <app-them-moi-doanh-nghiep #vc></app-them-moi-doanh-nghiep>
+  </div>
+  </eui-dialog>
