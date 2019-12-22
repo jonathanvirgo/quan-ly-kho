@@ -1,21 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { WelcomeComponent } from './welcome.component';
-import {RouterModule, Routes} from '@angular/router';
+// import {RouterModule, Routes} from '@angular/router';
 import { LayoutModule } from '../layout/layout.module';
 
-const routes:Routes = [
-  {
-      path     : 'welcome',
-      component: WelcomeComponent,
-  }
-];
+// const routes:Routes = [
+//   {
+//       path     : 'welcome',
+//       component: WelcomeComponent,
+//   }
+// ];
 
 @NgModule({
-  declarations: [WelcomeComponent],
+  declarations: [ WelcomeComponent ],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes),
+    // RouterModule.forChild(routes),
     LayoutModule
   ]
 })

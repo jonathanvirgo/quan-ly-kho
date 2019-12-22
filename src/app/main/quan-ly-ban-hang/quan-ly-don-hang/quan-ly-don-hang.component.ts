@@ -1,11 +1,11 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-quan-ly-don-hang',
   templateUrl: './quan-ly-don-hang.component.html',
   styleUrls: ['./quan-ly-don-hang.component.scss']
 })
-export class QuanLyDonHangComponent implements OnInit, OnDestroy {
+export class QuanLyDonHangComponent implements OnInit {
 
   data = [{ngay:"10/10/2019",so_phieu:"BG0001",ten_khach:"Phạm thị Hoa",dia_chi:"Hà Nội",dien_thoai:"0909028084",tien_hang:"100000",giam_gia:"0",tong_cong:"100000"},
   {ngay:"10/10/2019",so_phieu:"BG0001",ten_khach:"Phạm thị Hoa",dia_chi:"Hà Nội",dien_thoai:"0909028084",tien_hang:"100000",giam_gia:"0",tong_cong:"100000"},
@@ -50,8 +50,8 @@ export class QuanLyDonHangComponent implements OnInit, OnDestroy {
   onPageChange(evt : any){
     console.log(evt);
   }
-  ngOnDestroy(){
-    document.body.className = '';
-  }
+  // ngOnDestroy(){
+  //   document.body.className = '';
+  // }
 
 }

@@ -6,7 +6,7 @@ import { Component, OnInit, OnDestroy, ViewEncapsulation } from '@angular/core';
   styleUrls: ['./danh-muc-kho.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class DanhMucKhoComponent implements OnInit, OnDestroy {
+export class DanhMucKhoComponent implements OnInit {
 
   data_nhom = [{id:"01",ten:"Tất cả"},{id:"02",ten:"Mặc định"},{id:"03",ten:"Vật tư"}];
   data_vi_tri= [{id:"VT0001",ten:"Vật Tư 0001",hang:"10",cot:"100",tang:"0"},
@@ -44,9 +44,9 @@ onPageChange(evt : any){
     console.log(evt);
   }
 
-  ngOnDestroy(){
-    document.body.className = '';
-  }
+  // ngOnDestroy(){
+  //   document.body.className = '';
+  // }
 
   // an_ma(){
   //   let table =

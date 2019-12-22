@@ -5,7 +5,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
   templateUrl: './quan-ly-nha-cung-cap.component.html',
   styleUrls: ['./quan-ly-nha-cung-cap.component.scss']
 })
-export class QuanLyNhaCungCapComponent implements OnInit, OnDestroy {
+export class QuanLyNhaCungCapComponent implements OnInit {
 
   data_nhom = [{id:"01",ten:"Tất cả"},{id:"02",ten:"Mặc định"},{id:"03",ten:"Vật tư"}]
   data_nhan_vien = [{id:"NCC001",ten:"Cty Sắt thép cầu đường",so_dien_thoai:"0989402893",email:"vidu@gmail.com",thuoc_nhom:"Mặc định"},
@@ -42,8 +42,8 @@ export class QuanLyNhaCungCapComponent implements OnInit, OnDestroy {
     console.log(evt);
   }
 
-  ngOnDestroy(){
-    document.body.className = '';
-  }
+  // ngOnDestroy(){
+  //   document.body.className = '';
+  // }
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CheckLoginService } from '../../shared/services/check-login.service';
 
 @Component({
   selector: 'app-app-setting',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppSettingComponent implements OnInit {
 
-  constructor() { }
+  checkFormLogin = false;
+
+  constructor(
+    private _dataService: CheckLoginService
+  ) { }
 
   ngOnInit() {
+    this._dataService.checkFormLogin$.subscribe(s => {
+      if (s) {
+          this.checkFormLogin = true;
+      } else { this.checkFormLogin = false }
+  })
   }
 
 }

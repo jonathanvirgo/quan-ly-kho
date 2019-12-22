@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 declare var $;
 @Component({
   selector: 'app-quan-ly-bao-cao',
@@ -6,7 +6,7 @@ declare var $;
   styleUrls: ['./quan-ly-bao-cao.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class QuanLyBaoCaoComponent implements OnInit, OnDestroy {
+export class QuanLyBaoCaoComponent implements OnInit {
 
   data=[{
     "id":1,
@@ -92,8 +92,8 @@ public tools: object = {
     document.body.className = 'skin-blue sidebar-mini fixed';
   }
 
-  ngOnDestroy(){
-    document.body.className = '';
-  }
+  // ngOnDestroy(){
+  //   document.body.className = '';
+  // }
 
 }

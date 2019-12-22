@@ -5,7 +5,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
   templateUrl: './cau-hinh-he-thong.component.html',
   styleUrls: ['./cau-hinh-he-thong.component.scss']
 })
-export class CauHinhHeThongComponent implements OnInit, OnDestroy {
+export class CauHinhHeThongComponent implements OnInit{
 
   constructor() { }
 
@@ -14,8 +14,8 @@ export class CauHinhHeThongComponent implements OnInit, OnDestroy {
     document.body.className = 'skin-blue sidebar-mini';
   }
 
-  ngOnDestroy(){
-    document.body.className = '';
-  }
+  // ngOnDestroy(){
+  //   document.body.className = '';
+  // }
 
 }

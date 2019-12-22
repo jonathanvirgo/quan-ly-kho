@@ -5,7 +5,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
   templateUrl: './in-ma-vach.component.html',
   styleUrls: ['./in-ma-vach.component.scss']
 })
-export class InMaVachComponent implements OnInit, OnDestroy {
+export class InMaVachComponent implements OnInit {
 
   data = [{id:"HH0001",ten:"Thép Inox",don_vi_tinh:"m2",so_luong:"100"},
   {id:"HH0001",ten:"Thép Inox",don_vi_tinh:"m2",so_luong:"100"},
@@ -41,8 +41,8 @@ export class InMaVachComponent implements OnInit, OnDestroy {
     console.log(evt);
   }
 
-  ngOnDestroy(){
-    document.body.className = '';
-  }
+  // ngOnDestroy(){
+  //   document.body.className = '';
+  // }
 
 }

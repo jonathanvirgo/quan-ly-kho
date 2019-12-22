@@ -6,7 +6,7 @@ import { Component, OnInit, OnDestroy, ViewEncapsulation } from '@angular/core';
   styleUrls: ['./quan-ly-don-mua-hang.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class QuanLyDonMuaHangComponent implements OnInit, OnDestroy {
+export class QuanLyDonMuaHangComponent implements OnInit {
 
   data = [{ngay:"10/10/2019",so_phieu:"DH0001",nha_cung_cap:"Cty Nguyên vật liệu",nguoi_tiep_nhan:"Phạm Thị Hạnh",dia_chi:"Hà Nội",dien_thoai:"0909028084",tien_hang:"100000",giam_gia:"0",tong_cong:"100000"},
   {ngay:"10/10/2019",so_phieu:"DH0001",nha_cung_cap:"Cty Nguyên vật liệu",nguoi_tiep_nhan:"Phạm Thị Hạnh",dia_chi:"Hà Nội",dien_thoai:"0909028084",tien_hang:"100000",giam_gia:"0",tong_cong:"100000"},
@@ -52,8 +52,8 @@ export class QuanLyDonMuaHangComponent implements OnInit, OnDestroy {
     console.log(evt);
   }
 
-  ngOnDestroy(){
-    document.body.className = '';
-  }
+  // ngOnDestroy(){
+  //   document.body.className = '';
+  // }
 
 }

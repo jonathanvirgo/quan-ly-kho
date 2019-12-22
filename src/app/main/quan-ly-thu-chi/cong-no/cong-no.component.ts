@@ -6,7 +6,7 @@ import { Component, OnInit, OnDestroy, ViewEncapsulation } from '@angular/core';
   styleUrls: ['./cong-no.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class CongNoComponent implements OnInit, OnDestroy {
+export class CongNoComponent implements OnInit {
 
   data_nhom = [{id:"01",ten:"Tất cả"},{id:"02",ten:"Mặc định"},{id:"03",ten:"Mua hàng"}]
   data_cong_no = [{id:"HH0001",ten:"Thép Inox",dia_chi:"số 23 Dốc Vân Mai Lâm Đông Anh",so_dien_thoai:"0902934092",so_tien:"10000"},
@@ -56,7 +56,7 @@ export class CongNoComponent implements OnInit, OnDestroy {
     console.log(evt);
   }
 
-  ngOnDestroy(){
-    document.body.className = '';
-  }
+  // ngOnDestroy(){
+  //   document.body.className = '';
+  // }
 }

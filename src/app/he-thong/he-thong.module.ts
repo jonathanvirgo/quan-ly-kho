@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { LoginModule } from './login/login.module';
 import { LayoutModule } from './layout/layout.module';
 import { WelcomeModule } from './welcome/welcome.module';
-import { Login2Module } from './login2/login2.module';
 
 
 @NgModule({
@@ -12,8 +11,7 @@ import { Login2Module } from './login2/login2.module';
     CommonModule,
     LoginModule,
     LayoutModule,
-    WelcomeModule,
-    Login2Module
+    WelcomeModule
   ]
 })
 export class HeThongModule { }

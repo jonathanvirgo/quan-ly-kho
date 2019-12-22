@@ -1,32 +1,35 @@
 <div class="box box-primary">
   <!-- /.box-header -->
   <!-- form start -->
-  <form role="form">
-    <div class="box-body">
+    <div class="box-body" [formGroup]="myform">
       <div class="row">
         <div class = "col-md-3">
             <div class="form-group">
                 <label >Mã doanh nghiệp</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" formControlName="id">
+                <div style="margin-top: 5px" *ngIf="myform.get('id').invalid && myform.get('id').touched">
+                  <small class="text-danger">Mã doanh nghiệp không được trống</small>
+                </div>
               </div>
             <div class="box-profile">
                 <h3 class="profile-username text-left">Logo</h3>
                 <img class="profile-user-img img-responsive img-circle" src="/assets/dist/img/user4-128x128.jpg" alt="User profile picture">
-                <input type="file" style="margin-top: 10px">
+                <!-- <input type="file" style="margin-top: 10px"> -->
+                <eui-filebutton style="width:100px;margin-top: 10px">Select a file</eui-filebutton>
                 </div>
                 <div class="form-group" style="margin-top: 10px">
                     <label >Lời chào</label>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" formControlName="loi_chao">
                   </div>
                   <div class="form-group">
                       <label >Màu chủ đạo</label>
-                      <input type="text" class="form-control">
+                      <input type="text" [(colorPicker)]="color" class="form-control" [value]="color" formControlName="mau_chu_dao">
                     </div>
                     <div class="form-group">
                         <label>Hiển thị Menu</label>
-                        <select class="form-control">
-                          <option>Menu dọc</option>
-                          <option>Menu ngang</option>
+                        <select class="form-control" formControlName="hien_thi_menu">
+                          <option value=1 (click)="them_moi1($event)">Menu dọc</option>
+                          <option value=2>Menu ngang</option>
                         </select>
                       </div>
         </div>
@@ -35,29 +38,29 @@
             <div class="col-sm-6">
                 <div class="form-group">
                     <label >Tên doanh nghiệp</label>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" formControlName="ten_doanh_nghiep">
                   </div>
                   <div class="form-group">
                       <label >Tên viết tắt</label>
-                      <input type="text" class="form-control">
+                      <input type="text" class="form-control" formControlName="ten_viet_tat">
                     </div>
                     <div class="form-group">
                         <label >Điện thoại</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" formControlName="so_dien_thoai">
                       </div>
             </div>
             <div class="col-sm-6">
                 <div class="form-group">
                     <label >Tên giao dịch</label>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" formControlName="ten_giao_dich">
                   </div>
                   <div class="form-group">
                       <label >Mã số thuế</label>
-                      <input type="text" class="form-control">
+                      <input type="text" class="form-control" formControlName="ma_so_thue">
                     </div>
                     <div class="form-group">
                         <label >Fax</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" formControlName="fax">
                       </div>
             </div>
           </div>
@@ -65,18 +68,23 @@
             <div class="col-sm-12">
                 <div class="form-group">
                     <label >Số nhà</label>
-                    <input type="text" class="form-control" >
+                    <input type="text" class="form-control" formControlName="so_nha">
                   </div>
                   <div class="form-group">
                       <label>Địa chỉ</label>
-                      <select class="form-control">
+                      <eui-combobox class="form-control1" valueField="id" textField="ten" #combo1 [data]="data_dia_chi" [editable]="false"  formControlName="dia_chi">
+                        <eui-addon>
+                            <span *ngIf="combo1.value!=null" class="textbox-icon icon-clear" (click)="combo.value=null"></span>
+                        </eui-addon>
+                    </eui-combobox>
+                      <!-- <select class="form-control">
                         <option>Hà nội</option>
                         <option>Hồ Chí Minh</option>
-                      </select>
+                      </select> -->
                   </div>
                     <div class="form-group">
                         <label >Ghi chú</label>
-                        <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                        <textarea class="form-control" rows="3" placeholder="Enter ..." formControlName="ghi_chu"></textarea>
                       </div>
             </div>
 
@@ -88,9 +96,8 @@
 
     <div class="box-footer">
         <button type="submit" class="btn btn-default pull-right" style="margin-left:10px" (click)="vote()">Hủy</button>
-      <button type="submit" class="btn btn-primary pull-right">Thêm mới</button>
+      <button type="submit" class="btn btn-primary pull-right" (click)="them_moi()">Thêm mới</button>
 
     </div>
-  </form>
 </div>
 

@@ -6,7 +6,7 @@ import { Component, OnInit, OnDestroy, ViewEncapsulation } from '@angular/core';
   styleUrls: ['./kiem-ke-kho.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class KiemKeKhoComponent implements OnInit, OnDestroy {
+export class KiemKeKhoComponent implements OnInit {
 
   data = [{ngay:"10/10/2019",so_phieu:"DH0001",kho_hang:"Vật tư",dien_giai:"Mô tả nội dung diễn giải",nguoi_kiem_ke:"Hà Nội"},
   {ngay:"10/10/2019",so_phieu:"DH0001",kho_hang:"Vật tư",dien_giai:"Mô tả nội dung diễn giải",nguoi_kiem_ke:"Hà Nội"},
@@ -52,8 +52,8 @@ export class KiemKeKhoComponent implements OnInit, OnDestroy {
     console.log(evt);
   }
 
-  ngOnDestroy(){
-    document.body.className = '';
-  }
+  // ngOnDestroy(){
+  //   document.body.className = '';
+  // }
 
 }

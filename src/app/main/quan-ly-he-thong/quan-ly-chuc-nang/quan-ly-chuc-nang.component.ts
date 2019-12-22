@@ -6,7 +6,7 @@ import { Component, OnInit, OnDestroy, ViewEncapsulation } from '@angular/core';
   styleUrls: ['./quan-ly-chuc-nang.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class QuanLyChucNangComponent implements OnInit, OnDestroy{
+export class QuanLyChucNangComponent implements OnInit{
 
   data=[{
     "id":1,
@@ -82,8 +82,8 @@ export class QuanLyChucNangComponent implements OnInit, OnDestroy{
     document.body.className = 'skin-blue sidebar-mini fixed fixed';
   }
 
-  ngOnDestroy(){
-    document.body.className = '';
-  }
+  // ngOnDestroy(){
+  //   document.body.className = '';
+  // }
 
 }

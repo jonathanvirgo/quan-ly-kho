@@ -6,7 +6,7 @@ import { Component, OnInit, OnDestroy, ViewEncapsulation } from '@angular/core';
   styleUrls: ['./quan-ly-tinh-gia-thanh.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class QuanLyTinhGiaThanhComponent implements OnInit, OnDestroy {
+export class QuanLyTinhGiaThanhComponent implements OnInit {
 
   data = [{ngay:"10/10/2019",so_phieu:"TGT0001",ten:"Mặc định lô",ngay_ap_dung:"12/10/2019",nhom_kh:"Mặc Định",tinh_trang:"Hoạt Động"},
   {ngay:"10/10/2019",so_phieu:"TGT0001",ten:"Mặc định lô",ngay_ap_dung:"12/10/2019",nhom_kh:"Mặc Định",tinh_trang:"Hoạt Động"},
@@ -103,8 +103,8 @@ export class QuanLyTinhGiaThanhComponent implements OnInit, OnDestroy {
     console.log(evt);
   }
 
-  ngOnDestroy(){
-    document.body.className = '';
-  }
+  // ngOnDestroy(){
+  //   document.body.className = '';
+  // }
 
 }

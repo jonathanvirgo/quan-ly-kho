@@ -6,7 +6,7 @@ import { Component, OnInit, OnDestroy, ViewEncapsulation } from '@angular/core';
   styleUrls: ['./danh-muc-hang-hoa.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class DanhMucHangHoaComponent implements OnInit, OnDestroy {
+export class DanhMucHangHoaComponent implements OnInit {
 
   data_nhom = [{id:"01",ten:"Tất cả"},{id:"02",ten:"Mặc định"},{id:"03",ten:"Vật tư"}]
   data_nhan_vien = [{id:"HH0001",ten:"Thép Inox",don_vi_tinh:"m2",ton:"100",gia_von:"100",thuoc_nhom:"Mặc định"},

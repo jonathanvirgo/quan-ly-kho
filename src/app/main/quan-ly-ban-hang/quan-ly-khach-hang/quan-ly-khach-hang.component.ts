@@ -6,7 +6,7 @@ import { Component, OnInit, OnDestroy, ViewEncapsulation } from '@angular/core';
   styleUrls: ['./quan-ly-khach-hang.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class QuanLyKhachHangComponent implements OnInit, OnDestroy {
+export class QuanLyKhachHangComponent implements OnInit {
 
   data_nhom = [{id:"01",ten:"Tất cả"},{id:"02",ten:"Mặc định"},{id:"03",ten:"Phòng kinh doanh"},{id:"04",ten:"Phòng Kế Toán"}];
   data_nhan_vien = [{id:"01",ten:"Nguyễn Thị A",so_dien_thoai:"0989402893",email:"noihoidong@gmail.com",ten_dang_nhap:"Chưa Tạo"}];
@@ -29,9 +29,9 @@ export class QuanLyKhachHangComponent implements OnInit, OnDestroy {
   onPageChange(evt : any){
     console.log(evt);
   }
-  ngOnDestroy(){
-    document.body.className = '';
-  }
+  // ngOnDestroy(){
+  //   document.body.className = '';
+  // }
 
 
 }

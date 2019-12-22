@@ -43,7 +43,8 @@
               "src/assets/bower_components/chart.js/Chart.js",
               "src/assets/dist/js/pages/dashboard2.js",
               "src/assets/dist/js/demo.js",
-              "src/assets/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"
+              "src/assets/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js",
+              "src/assets/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"
             ],
             "es5BrowserSupport": true
           },
@@ -143,6 +144,46 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "layout": {
+      "projectType": "library",
+      "root": "projects/layout",
+      "sourceRoot": "projects/layout/src",
+      "prefix": "lib",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/layout/tsconfig.lib.json",
+            "project": "projects/layout/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/layout/src/test.ts",
+            "tsConfig": "projects/layout/tsconfig.spec.json",
+            "karmaConfig": "projects/layout/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/layout/tsconfig.lib.json",
+              "projects/layout/tsconfig.spec.json"
+            ],
             "exclude": [
               "**/node_modules/**"
             ]

@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-quan-ly-bao-gia',
@@ -6,7 +6,7 @@ import { Component, OnInit, OnDestroy, ViewEncapsulation } from '@angular/core';
   styleUrls: ['./quan-ly-bao-gia.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class QuanLyBaoGiaComponent implements OnInit, OnDestroy {
+export class QuanLyBaoGiaComponent implements OnInit {
 
   data = [{ngay:"10/10/2019",so_phieu:"BG0001",ten_khach:"Phạm thị Hoa",dia_chi:"Hà Nội",dien_thoai:"0909028084",tien_hang:"100000",giam_gia:"0",tong_cong:"100000"},
   {ngay:"10/10/2019",so_phieu:"BG0001",ten_khach:"Phạm thị Hoa",dia_chi:"Hà Nội",dien_thoai:"0909028084",tien_hang:"100000",giam_gia:"0",tong_cong:"100000"},
@@ -52,8 +52,8 @@ export class QuanLyBaoGiaComponent implements OnInit, OnDestroy {
     console.log(evt);
   }
 
-  ngOnDestroy(){
-    document.body.className = '';
-  }
+  // ngOnDestroy(){
+  //   document.body.className = '';
+  // }
 
 }

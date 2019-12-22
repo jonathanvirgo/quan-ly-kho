@@ -6,7 +6,6 @@ import { LayoutModule } from '../../he-thong/layout/layout.module';
 import { EasyUIModule } from 'ng-easyui/components/easyui/easyui.module';
 import { MatButtonModule, MatIconModule, MatMenuModule} from '@angular/material';
 import { FormsModule} from '@angular/forms';
-import { FlexLayoutModule } from "@angular/flex-layout";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RichTextEditorAllModule} from "@syncfusion/ej2-angular-richtexteditor";
 
@@ -26,7 +25,6 @@ const route: Routes = [
     MatMenuModule,
     FormsModule,
     BrowserAnimationsModule,
-    FlexLayoutModule,
     RichTextEditorAllModule
   ]
 })

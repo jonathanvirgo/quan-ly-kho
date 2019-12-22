@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
+import { CheckLoginService } from '../../shared/services/check-login.service';
 
 @Component({
   selector: 'app-nav',
@@ -8,11 +8,18 @@ import {Router} from '@angular/router';
 })
 export class NavComponent implements OnInit {
 
+  checkFormLogin = false;
+
   constructor(
-    private router: Router
+    private _dataService: CheckLoginService
   ) { }
 
   ngOnInit() {
+    this._dataService.checkFormLogin$.subscribe(s => {
+      if (s) {
+          this.checkFormLogin = true;
+      } else { this.checkFormLogin = false }
+  })
   }
 
 }
